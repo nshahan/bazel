@@ -33,7 +33,7 @@ Future<Null> generate(BazelifyInitArguments arguments) async {
   final packagesFilePath = p.join(arguments.pubPackageDir, '.packages');
   final packages = parse(
     await new File(packagesFilePath).readAsBytes(),
-    Uri.parse(packagesFilePath),
+    p.toUri(packagesFilePath),
   );
 
   // Clean and re-build the .bazelify folder.
